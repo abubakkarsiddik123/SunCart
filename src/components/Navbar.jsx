@@ -9,7 +9,7 @@ const Navbar = () => {
 
   return (
     <div className="border-b px-2">
-      <nav className="flex justify-between items-center py-3 max-w-7xl mx-auto w-full">
+      <nav className="flex justify-between items-center py-3 container mx-auto w-full">
         {/* Logo */}
         <div className="flex gap-2 items-center">
           <Image
@@ -27,7 +27,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-8 flex-1 justify-center">
           <ul className="flex items-center gap-5 text-sm">
             <li>
               <Link href="/">Home</Link>
@@ -39,7 +39,10 @@ const Navbar = () => {
               <Link href="/profile">My Profile</Link>
             </li>
           </ul>
+        </div>
 
+        {/* Desktop Auth */}
+        <div className="hidden md:flex gap-4">
           <ul className="flex items-center gap-4 text-sm">
             <li>
               <Link href="/signup">SignUp</Link>
