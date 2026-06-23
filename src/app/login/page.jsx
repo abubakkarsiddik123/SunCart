@@ -15,7 +15,7 @@ import Link from "next/link";
 import { GrGoogle } from "react-icons/gr";
 import { toast } from "react-toastify";
 
-export default function SignInPage() {
+export default function LogInPage() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -42,7 +42,7 @@ export default function SignInPage() {
 
   return (
     <Card className="border mx-auto max-w-md py-10 my-5">
-      <h1 className="text-center text-2xl font-bold">Sign In</h1>
+      <h1 className="text-center text-2xl font-bold">LogIn</h1>
       <Form className="flex  mx-auto flex-col gap-4" onSubmit={onSubmit}>
         <TextField
           isRequired
@@ -101,7 +101,7 @@ export default function SignInPage() {
       <p className="text-center mt-4">
         Don't have an account?{" "}
         <Link
-          href="/signup"
+          href="/logout"
           className="text-orange-500 font-medium hover:underline"
         >
           Register

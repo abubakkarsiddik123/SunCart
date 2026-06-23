@@ -54,10 +54,10 @@ const Navbar = () => {
         <div className="hidden md:flex gap-4">
           {!user && <ul className="flex items-center gap-4 text-sm">
             <li>
-              <Link href="/signup">SignUp</Link>
+              <Link href="/logout">Register</Link>
             </li>
             <li>
-              <Link href="/signin">SignIn</Link>
+              <Link href="/login">Login</Link>
             </li>
           </ul>}
           {user && (
@@ -71,7 +71,7 @@ const Navbar = () => {
                 <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
               </Avatar>
               <Button onClick={handleSignOut} size="sm" variant="danger">
-                Sign Out
+                Logout
               </Button>
             </div>
           )}

@@ -16,7 +16,7 @@ import { useRouter } from "next/navigation";
 import { GrGoogle } from "react-icons/gr";
 import { toast } from "react-toastify";
 
-export default function SignUpPage() {
+export default function LogOutPage() {
   const router = useRouter();
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -50,7 +50,7 @@ export default function SignUpPage() {
 
   return (
     <Card className="border mx-auto max-w-md py-10 my-5">
-      <h1 className="text-center text-2xl font-bold">Sign Up</h1>
+      <h1 className="text-center text-2xl font-bold">Register Now</h1>
 
       <Form className="flex w-96 mx-auto flex-col gap-4" onSubmit={onSubmit}>
         <TextField isRequired name="name" type="text">
@@ -122,7 +122,7 @@ export default function SignUpPage() {
       <p className="text-center mt-4">
         Already have an account?{" "}
         <Link
-          href="/signin"
+          href="/login"
           className="text-orange-500 font-medium hover:underline"
         >
           Login
