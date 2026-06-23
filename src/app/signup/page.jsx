@@ -11,7 +11,9 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { GrGoogle } from "react-icons/gr";
 import { toast } from "react-toastify";
 
 export default function SignUpPage() {
@@ -29,18 +31,25 @@ export default function SignUpPage() {
       password,
       image,
     });
-    if (!error) {
-      router.push("/signin");
-    }
     if (error) {
-       toast.error(error.message);
+      toast.error(error.message);
       return;
     }
+
     toast.success("Account Created Successfully!");
+
+    setTimeout(() => {
+      router.push("/signin");
+    }, 1500);
+  };
+  const handleGoogleSingIn = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+    });
   };
 
   return (
-    <Card className="border mx-auto w-125 py-10 my-5">
+    <Card className="border mx-auto max-w-md py-10 my-5">
       <h1 className="text-center text-2xl font-bold">Sign Up</h1>
 
       <Form className="flex w-96 mx-auto flex-col gap-4" onSubmit={onSubmit}>
@@ -110,6 +119,19 @@ export default function SignUpPage() {
           </Button>
         </div>
       </Form>
+      <p className="text-center mt-4">
+        Already have an account?{" "}
+        <Link
+          href="/signin"
+          className="text-orange-500 font-medium hover:underline"
+        >
+          Login
+        </Link>
+      </p>
+      <p className="text-center mx-auto">Or</p>
+      <Button onClick={handleGoogleSingIn} variant="outline" className="w-full">
+        <GrGoogle /> Sign Up With Google
+      </Button>
     </Card>
   );
 }
