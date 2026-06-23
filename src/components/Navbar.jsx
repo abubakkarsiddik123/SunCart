@@ -3,9 +3,18 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
+import { Avatar, Button } from "@heroui/react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const userData = authClient.useSession();
+  const user = userData.data?.user;
+  
+  const handleSignOut =async()=>{
+    await authClient.signOut();
+  }
 
   return (
     <div className="border-b px-2">
@@ -43,14 +52,29 @@ const Navbar = () => {
 
         {/* Desktop Auth */}
         <div className="hidden md:flex gap-4">
-          <ul className="flex items-center gap-4 text-sm">
+          {!user && <ul className="flex items-center gap-4 text-sm">
             <li>
               <Link href="/signup">SignUp</Link>
             </li>
             <li>
               <Link href="/signin">SignIn</Link>
             </li>
-          </ul>
+          </ul>}
+          {user && (
+            <div className="flex gap-2">
+              <Avatar size="sm">
+                <Avatar.Image
+                  alt={user?.name}
+                  src={user?.image}
+                  referrerPolicy="no-referrer"
+                />
+                <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
+              </Avatar>
+              <Button onClick={handleSignOut} size="sm" variant="danger">
+                Sign Out
+              </Button>
+            </div>
+          )}
         </div>
 
         {/* Hamburger Button */}
