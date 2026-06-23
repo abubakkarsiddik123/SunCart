@@ -4,6 +4,8 @@ import { authClient } from "@/lib/auth-client";
 import { Avatar, Card } from "@heroui/react";
 import React from "react";
 
+
+
 const ProfilePage = () => {
   const userData = authClient.useSession();
   const user = userData.data?.user;

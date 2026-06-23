@@ -2,6 +2,12 @@
 import ProductCard from "@/components/ProductCard";
 import { FaShoppingBag } from "react-icons/fa";
 
+export const metadata = {
+  title: "Products | SunCart",
+  description:
+    "Browse all summer essentials including sunglasses, beachwear, skincare products, and accessories.",
+};
+
 const ProductsPage = async () => {
   const res = await fetch("http://localhost:3000/data.json");
   const products = await res.json();

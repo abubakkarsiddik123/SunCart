@@ -1,6 +1,31 @@
 import Image from "next/image";
 import { FaStar, FaBox, FaTag, FaShoppingCart } from "react-icons/fa";
 
+
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+
+  const res = await fetch("http://localhost:3000/data.json");
+  const products = await res.json();
+
+  const product = products.find(
+    (item) => item.id === Number(id)
+  );
+
+  if (!product) {
+    return {
+      title: "Product Not Found | SunCart",
+      description: "Product not found",
+    };
+  }
+
+  return {
+    title: `${product.name} | SunCart`,
+    description: product.description,
+  };
+}
+
+
 const ProductDetailsPage = async ({ params }) => {
   const { id } = await params;
   const res = await fetch("http://localhost:3000/data.json");
