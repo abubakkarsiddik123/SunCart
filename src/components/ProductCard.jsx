@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
         </p>
 
         <Link
-          href={`/product/${product.id}`}
+          href={`/products/${product.id}`}
           className="block text-center bg-gradient-to-r from-orange-500 to-amber-500 text-white py-3 rounded-xl font-semibold hover:opacity-90 transition"
         >
           View Details
