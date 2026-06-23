@@ -7,7 +7,7 @@ import { FaHotjar, FaShoppingCart, FaSun } from "react-icons/fa";
 
 const Banner = () => {
   return (
-    <section className="bg-gradient-to-r from-yellow-50 via-orange-50 to-yellow-100">
+    <section className=" bg-gradient-to-r from-yellow-50 via-orange-50 to-yellow-100">
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           {/* Content */}
