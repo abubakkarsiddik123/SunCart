@@ -55,7 +55,7 @@ const Navbar = () => {
           {!user && (
             <ul className="flex items-center gap-4 text-sm">
               <li>
-                <Link href="/logout">Register</Link>
+                <Link href="/register">Register</Link>
               </li>
               <li>
                 <Link href="/login">Login</Link>
