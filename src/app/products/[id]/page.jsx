@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
   const products = await res.json();
 
   const product = products.find(
-    (item) => item.id === Number(id)
+    (item) => item.id === id
   );
 
   if (!product) {
@@ -28,7 +28,6 @@ export async function generateMetadata({ params }) {
 
 const ProductDetailsPage = async ({ params }) => {
   const { id } = await params;
-  console.log(typeof products[0].id);
   const res = await fetch("https://suncart-server-955i.onrender.com/products");
   const products = await res.json();
   console.log(products);
