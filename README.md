@@ -1,7 +1,7 @@
 #  SunCart - Summer Essentials Store
 
 ##  Live URL
-https://your-live-link.vercel.app
+https://sun-cart-phi.vercel.app
 
 ##  Project Purpose
 
