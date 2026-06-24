@@ -16,7 +16,7 @@ import { useRouter } from "next/navigation";
 import { GrGoogle } from "react-icons/gr";
 import { toast } from "react-toastify";
 
-export default function LogOutPage() {
+export default function RegisterPage() {
   const router = useRouter();
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -39,7 +39,7 @@ export default function LogOutPage() {
     toast.success("Account Created Successfully!");
 
     setTimeout(() => {
-      router.push("/signin");
+      router.push("/login");
     }, 1500);
   };
   const handleGoogleSingIn = async () => {
