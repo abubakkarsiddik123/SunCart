@@ -63,13 +63,14 @@ export default function LogInPage() {
           <FieldError />
         </TextField>
 
-        <TextField className="w-full max-w-[280px]" name="password">
+        <TextField className="w-full " name="password">
           <Label>Password</Label>
           <InputGroup>
             <InputGroup.Input
-              className="w-full max-w-[280px]"
+              className="w-full "
               type={isVisible ? "text" : "password"}
               name="password"
+              placeholder="Enter Your password"
             />
             <InputGroup.Suffix className="pr-0">
               <Button
