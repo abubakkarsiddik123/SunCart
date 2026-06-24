@@ -11,10 +11,10 @@ const Navbar = () => {
 
   const userData = authClient.useSession();
   const user = userData.data?.user;
-  
-  const handleSignOut =async()=>{
+
+  const handleSignOut = async () => {
     await authClient.signOut();
-  }
+  };
 
   return (
     <div className="border-b px-2">
@@ -52,24 +52,28 @@ const Navbar = () => {
 
         {/* Desktop Auth */}
         <div className="hidden md:flex gap-4">
-          {!user && <ul className="flex items-center gap-4 text-sm">
-            <li>
-              <Link href="/logout">Register</Link>
-            </li>
-            <li>
-              <Link href="/login">Login</Link>
-            </li>
-          </ul>}
+          {!user && (
+            <ul className="flex items-center gap-4 text-sm">
+              <li>
+                <Link href="/logout">Register</Link>
+              </li>
+              <li>
+                <Link href="/login">Login</Link>
+              </li>
+            </ul>
+          )}
           {user && (
             <div className="flex gap-2">
-              <Avatar size="sm">
-                <Avatar.Image
-                  alt={user?.name}
-                  src={user?.image}
-                  referrerPolicy="no-referrer"
-                />
-                <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
-              </Avatar>
+              <Link href="/profile">
+                <Avatar size="sm">
+                  <Avatar.Image
+                    alt={user?.name}
+                    src={user?.image}
+                    referrerPolicy="no-referrer"
+                  />
+                  <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
+                </Avatar>
+              </Link>
               <Button onClick={handleSignOut} size="sm" variant="danger">
                 Logout
               </Button>
