@@ -32,7 +32,7 @@ const ProductDetailsPage = async ({ params }) => {
   const products = await res.json();
   console.log(products);
 
-  const product = products.find((item) => item.id === Number(id));
+  const product = products.find((item) => item.id === id);
 
   return (
     <section className="max-w-6xl mx-auto py-16 px-4">
