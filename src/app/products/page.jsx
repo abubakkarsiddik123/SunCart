@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 const ProductsPage = async () => {
-  const res = await fetch("http://localhost:3000/data.json");
+  const res = await fetch("https://suncart-server-955i.onrender.com");
   const products = await res.json();
   return (
     <section className="py-16 min-h-screen">
