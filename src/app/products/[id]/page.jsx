@@ -5,7 +5,7 @@ import { FaStar, FaBox, FaTag, FaShoppingCart } from "react-icons/fa";
 export async function generateMetadata({ params }) {
   const { id } = await params;
 
-  const res = await fetch("https://suncart-server-955i.onrender.com");
+  const res = await fetch("https://suncart-server-955i.onrender.com/products");
   const products = await res.json();
 
   const product = products.find(
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
 
 const ProductDetailsPage = async ({ params }) => {
   const { id } = await params;
-  const res = await fetch("https://suncart-server-955i.onrender.com");
+  const res = await fetch("https://suncart-server-955i.onrender.com/products");
   const products = await res.json();
 
   const product = products.find((item) => item.id === Number(id));

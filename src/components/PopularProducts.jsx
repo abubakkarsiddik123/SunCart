@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 import { FaFire } from "react-icons/fa";
 
 const PopularProducts = async () => {
-  const res = await fetch("https://suncart-server-955i.onrender.com");
+  const res = await fetch("https://suncart-server-955i.onrender.com/products");
   const products = await res.json();
   const topProducts = products.slice(0, 3);
   return (
