@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
   const products = await res.json();
 
   const product = products.find(
-    (item) => item.id === id
+    (item) => item.id === Number(id)
   );
 
   if (!product) {
