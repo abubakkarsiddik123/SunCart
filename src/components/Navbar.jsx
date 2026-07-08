@@ -123,6 +123,9 @@ const Navbar = () => {
                 SignIn
               </Link>
             </li>
+            <Button onClick={handleSignOut} size="sm" variant="danger">
+              Logout
+            </Button>
           </ul>
         </div>
       )}
