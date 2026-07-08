@@ -149,7 +149,7 @@ const Navbar = () => {
 
   const pathname = usePathname();
 
-  const { data, isPending } = authClient.useSession();
+  const { data } = authClient.useSession();
   const user = data?.user;
 
   const navItems = [
@@ -171,8 +171,6 @@ const Navbar = () => {
     await authClient.signOut();
     setIsOpen(false);
   };
-
-  if (isPending) return null;
 
   return (
     <header className="border-b px-2">
@@ -232,6 +230,7 @@ const Navbar = () => {
                   />
                   <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
                 </Avatar>
+                <span className="text-sm font-medium">{user.name}</span>
               </Link>
               <Button onClick={handleSignOut} size="sm" variant="danger">
                 Logout
@@ -295,6 +294,7 @@ const Navbar = () => {
                       />
                       <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
                     </Avatar>
+                    <span className="text-sm font-medium">{user.name}</span>
                   </Link>
                 </li>
 
