@@ -179,13 +179,14 @@ const Navbar = () => {
     <header className="border-b px-2">
       <nav className="container mx-auto flex items-center justify-between py-3">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <Image
+         <Link href={"/"} className="flex gap-2 items-center">
+           <Image
             src="/navlogo.png"
-            alt="SunCart Logo"
+            alt="logo"
+            loading="eager"
             width={40}
             height={40}
-            priority
+            className="object-cover h-auto w-auto"
           />
 
           <h1 className="text-lg md:text-2xl font-extrabold bg-gradient-to-r from-yellow-300 to-orange-500 bg-clip-text text-transparent">
@@ -212,36 +213,33 @@ const Navbar = () => {
         </ul>
 
         {/* Desktop Auth */}
-        <div className="hidden md:flex items-center gap-3">
-          {!user ? (
-            <>
-              <Link href="/register">
-                <Button variant="light">Register</Button>
-              </Link>
-
-              <Link href="/login">
-                <Button color="warning">Login</Button>
-              </Link>
-            </>
-          ) : (
-            <>
+       <div className="hidden md:flex gap-4">
+          {!user && (
+            <ul className="flex items-center gap-4 text-sm">
+              <li>
+                <Link href="/register">Register</Link>
+              </li>
+              <li>
+                <Link href="/login">Login</Link>
+              </li>
+            </ul>
+          )}
+          {user && (
+            <div className="flex gap-2">
               <Link href="/profile">
-                <Avatar
-                  src={user.image || ""}
-                  name={user.name || "User"}
-                  size="sm"
-                />
+                <Avatar size="sm">
+                  <Avatar.Image
+                    alt={user?.name}
+                    src={user?.image}
+                    referrerPolicy="no-referrer"
+                  />
+                  <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
+                </Avatar>
               </Link>
-
-              <Button
-                color="danger"
-                variant="solid"
-                size="sm"
-                onClick={handleSignOut}
-              >
+              <Button onClick={handleSignOut} size="sm" variant="danger">
                 Logout
               </Button>
-            </>
+            </div>
           )}
         </div>
 
@@ -332,3 +330,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+       
+
+
