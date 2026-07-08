@@ -82,7 +82,7 @@ const Navbar = () => {
             </ul>
           )}
           {user && (
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-3 items-center">
               <span className="text-sm font-medium">{user?.name}</span>
               <Link href="/profile">
                 <Avatar size="sm">
