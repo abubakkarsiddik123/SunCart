@@ -135,7 +135,6 @@
 
 // export default Navbar;
 
-
 "use client";
 
 import { useState } from "react";
@@ -179,8 +178,8 @@ const Navbar = () => {
     <header className="border-b px-2">
       <nav className="container mx-auto flex items-center justify-between py-3">
         {/* Logo */}
-         <Link href={"/"} className="flex gap-2 items-center">
-           <Image
+        <Link href={"/"} className="flex gap-2 items-center">
+          <Image
             src="/navlogo.png"
             alt="logo"
             loading="eager"
@@ -201,9 +200,7 @@ const Navbar = () => {
               <Link
                 href={item.href}
                 className={`transition hover:text-orange-500 ${
-                  pathname === item.href
-                    ? "text-orange-500 font-semibold"
-                    : ""
+                  pathname === item.href ? "text-orange-500 font-semibold" : ""
                 }`}
               >
                 {item.name}
@@ -213,7 +210,7 @@ const Navbar = () => {
         </ul>
 
         {/* Desktop Auth */}
-       <div className="hidden md:flex gap-4">
+        <div className="hidden md:flex gap-4">
           {!user && (
             <ul className="flex items-center gap-4 text-sm">
               <li>
@@ -275,19 +272,13 @@ const Navbar = () => {
             {!user ? (
               <>
                 <li>
-                  <Link
-                    href="/register"
-                    onClick={() => setIsOpen(false)}
-                  >
+                  <Link href="/register" onClick={() => setIsOpen(false)}>
                     Register
                   </Link>
                 </li>
 
                 <li>
-                  <Link
-                    href="/login"
-                    onClick={() => setIsOpen(false)}
-                  >
+                  <Link href="/login" onClick={() => setIsOpen(false)}>
                     Login
                   </Link>
                 </li>
@@ -295,28 +286,20 @@ const Navbar = () => {
             ) : (
               <>
                 <li>
-                  <Link
-                    href="/profile"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <div className="flex items-center gap-2">
-                      <Avatar
-                        src={user.image || ""}
-                        name={user.name || "User"}
-                        size="sm"
+                  <Link href="/profile">
+                    <Avatar size="sm">
+                      <Avatar.Image
+                        alt={user?.name}
+                        src={user?.image}
+                        referrerPolicy="no-referrer"
                       />
-                      <span>{user.name}</span>
-                    </div>
+                      <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
+                    </Avatar>
                   </Link>
                 </li>
 
                 <li>
-                  <Button
-                    color="danger"
-                    variant="solid"
-                    size="sm"
-                    onClick={handleSignOut}
-                  >
+                  <Button onClick={handleSignOut} size="sm" variant="danger">
                     Logout
                   </Button>
                 </li>
@@ -330,7 +313,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-       
-
-
